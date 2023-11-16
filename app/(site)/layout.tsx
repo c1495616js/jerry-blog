@@ -1,8 +1,7 @@
 import siteMetadata from "@/lib/metadata";
 import { cn } from "@/lib/utils";
-
 // import Footer from "@/components/footer";
-// import { Navigation } from "@/components/navigation";
+import { Navigation } from "@/components/navigation";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -18,7 +17,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         Skip to Content
       </a>
-      {/* <Navigation /> */}
+      <Navigation />
       <div className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"></div>
       <main className={cn("mt-20", siteMetadata.activeAnnouncement && "mt-32 pt-28 md:pt-0")} id="main-content">
         {children}
