@@ -8,16 +8,16 @@ export const BASE_URL =
   `http://localhost:${process.env.PORT || 3000}`;
 
 export const defaultAuthor: AuthorType = {
-  name: "Amy Shields",
+  name: "Jerry Wang",
   handle: "@amyshieldsfake",
   socialProfiles,
-  email: "definitelyfake@nevermind.com",
-  website: "https://nextjs.org",
-  jobTitle: "Frontend Engineer & UI Designer",
-  company: "Unicorns & Co.",
+  email: "c1495616@gmail.com",
+  website: "https://www.jerrywang.dev",
+  jobTitle: "Full-Stack Engineer",
+  company: "EY Design Studio",
   availableForWork: true,
   location: {
-    city: "Los Angeles",
+    city: "Victoria",
     media: "/losangeles.jpg",
   },
 };
@@ -31,12 +31,12 @@ const siteMetadata: SiteMetaData = {
     default: defaultTitle,
   },
   description: defaultDescription,
-  siteRepo: "https://github.com/thedevdavid/digital-garden",
-  newsletterProvider: "mailerlite",
-  newsletterUrl: "https://developreneur.davidlevai.com",
-  analyticsProvider: "umami",
+  siteRepo: "https://github.com/c1495616js/jerry-blog",
+  // newsletterProvider: "mailerlite",
+  // newsletterUrl: "https://developreneur.davidlevai.com",
+  // analyticsProvider: "umami",
   defaultTheme: "system",
-  activeAnnouncement: true,
+  activeAnnouncement: false, // product hunt enable/disable
   announcement: {
     buttonText: "Support on DevHunt →",
     link: "https://devhunt.org/tool/modern-developer-blog-template-digital-garden-starter",
