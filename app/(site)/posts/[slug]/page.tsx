@@ -188,7 +188,7 @@ export default async function PostPage({ params }: PostProps) {
             </CardContent>
             <Separator />
             <CardFooter>
-              <div className="mb-4 mt-1 text-sm leading-snug text-muted-foreground">
+              <div className="mb-1 mt-1 pt-2 text-sm leading-snug text-muted-foreground">
                 <p className="mb-2">{`${post.readTimeMinutes} mins read`}</p>
                 <time>Originally published: {format(parseISO(post.publishedDate), "LLLL d, yyyy")} </time>
                 <br />
