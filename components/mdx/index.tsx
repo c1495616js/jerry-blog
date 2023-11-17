@@ -1,5 +1,6 @@
 import NextImage, { ImageProps } from "next/image";
 import Link from "next/link";
+import type { MDXComponents } from "mdx/types";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import type { TweetProps } from "react-tweet";
 import { Tweet } from "react-tweet";
@@ -20,7 +21,7 @@ function CustomLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   );
 }
 
-const components = {
+const components: MDXComponents = {
   Image: (props: ImageProps) => <NextImage {...props} />,
   YouTubeVideo,
   a: CustomLink,
@@ -31,7 +32,7 @@ const components = {
       </div>
     );
   },
-  pre: Pre,
+  pre: Pre as any,
 };
 
 interface MdxProps {
@@ -40,6 +41,5 @@ interface MdxProps {
 
 export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
-  // TODO: Figure out how to type this
-  return <Component components={components as any} />;
+  return <Component components={components} />;
 }
