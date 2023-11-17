@@ -26,7 +26,7 @@ export const CopyButton = ({ text }: Props) => {
       onClick={copy}
       disabled={isCopied}
       className={clsx(
-        "ml-2 hidden rounded-md border bg-transparent p-2 transition ease-in focus:outline-none group-hover:flex",
+        "ml-2 flex rounded-md border bg-transparent p-2 transition ease-in focus:outline-none group-hover:flex md:hidden",
         {
           "border-green-400": isCopied,
           "border-gray-600 hover:border-gray-400 focus:ring-4 focus:ring-gray-200/50 dark:border-gray-700 dark:hover:border-gray-400":
