@@ -39,11 +39,7 @@ export default async function SocialPage() {
         <h2>Hardware</h2>
         <ul>
           {hardware.map((item) => (
-            <li key={item.href}>
-              <a href={item.href} target="_blank">
-                {item.title}
-              </a>
-            </li>
+            <li key={item.title}>{item.title}</li>
           ))}
         </ul>
       </article>
