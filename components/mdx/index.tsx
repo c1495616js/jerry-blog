@@ -4,6 +4,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import type { TweetProps } from "react-tweet";
 import { Tweet } from "react-tweet";
 
+import { Pre } from "./pre";
 import { YouTubeVideo } from "./youtube-video";
 
 function CustomLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
@@ -22,7 +23,7 @@ function CustomLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
 const components = {
   Image: (props: ImageProps) => <NextImage {...props} />,
   YouTubeVideo,
-  // a: CustomLink,
+  a: CustomLink,
   Tweet: (props: TweetProps) => {
     return (
       <div className="not-prose [&>div]:mx-auto">
@@ -30,6 +31,7 @@ const components = {
       </div>
     );
   },
+  pre: Pre,
 };
 
 interface MdxProps {
