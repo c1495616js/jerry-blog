@@ -35,7 +35,7 @@ const siteMetadata: SiteMetaData = {
   // newsletterProvider: "mailerlite",
   // newsletterUrl: "https://developreneur.davidlevai.com",
   // analyticsProvider: "umami",
-  defaultTheme: "system",
+  defaultTheme: "dark",
   activeAnnouncement: false, // product hunt enable/disable
   announcement: {
     buttonText: "Support on DevHunt →",

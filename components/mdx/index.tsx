@@ -5,6 +5,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import type { TweetProps } from "react-tweet";
 import { Tweet } from "react-tweet";
 
+import { Code } from "./code";
 import { Pre } from "./pre";
 import { YouTubeVideo } from "./youtube-video";
 
@@ -17,7 +18,7 @@ function CustomLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   }
   return (
     //@ts-expect-error
-    <Link href={href} />
+    <Link href={href} {...props} />
   );
 }
 
@@ -33,6 +34,7 @@ const components: MDXComponents = {
     );
   },
   pre: Pre as any,
+  code: Code as any,
 };
 
 interface MdxProps {
