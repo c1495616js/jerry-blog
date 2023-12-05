@@ -11,9 +11,9 @@ interface Props {
 export const Pre = ({ children, raw, ...props }: React.PropsWithChildren<Props>) => {
   const lang = props["data-language"] || "shell";
   return (
-    <pre {...props} className={"group p-0"}>
+    <pre {...props} className={"group p-0 [&>code]:bg-inherit"}>
       <div className={"code-header"}>
-        <div className="flex rounded-full bg-red-200 px-3 py-1 text-xs font-bold  text-red-700">
+        <div className="flex rounded-full bg-red-200 px-3 py-1 text-xs font-bold  text-red-700 ">
           <span>{lang}</span>
         </div>
         <CopyButton text={raw} />
