@@ -1,0 +1,96 @@
+---
+title: "Gitea + Drone"
+publishedDate: "2024-02-29"
+lastUpdatedDate: "2024-02-29"
+tags:
+  - devops
+description: "Gitea + Drone with docker-compose"
+status: published
+---
+
+# Gitea + Drone + docker-compose
+
+## Link
+
+Repo: https://github.com/c1495616js/gitea-drone/tree/main
+
+## Credit to 
+
+https://github.com/ruanbekker/drone-gitea-on-docker
+
+## Usage
+
+Set the following in your `boot.sh`:
+
+```
+IP_ADDRESS=192.168.0.6       -> DO NOT USE 127.0.0.1 or localhost. either reachable dns or ip address which will be your clone address and ui addresses.
+GITEA_ADMIN_USER="giteauser" -> will be the user you register with in drone
+```
+
+Now boot the stack:
+
+```
+$ sh boot.sh
+```
+- Head over to: `http://${IP_ADDRESS}:3000 and click install gitea with existing configuration.
+
+- Register an account in gitea.
+
+- Head over to: `http://${IP_ADDRESS}:3000/user/settings/applications` and create a new OAuth2 Application and set the Redirect URI to `http://${IP_ADDRESS}:3001/login`
+
+- Capture the client id and client secret and populate them in the `boot.sh` in `DRONE_GITEA_CLIENT_ID` and `DRONE_GITEA_CLIENT_SECRET` and run `bash boot.sh` again. This will give drone the correct credentials in order to authenticate with gitea.
+
+- Now when you head over to `http://${IP_ADDRESS}:3001/` you will be asked to authorize the application and you should be able to access drone.
+
+
+## Build your first pipeline
+
+Create a test repo in gitea:
+
+![CleanShot 2024-02-29 at 10 45 18@2x](https://github.com/c1495616js/gitea-drone/assets/31360789/a1f11af2-a6a7-410e-90ee-bf8d7ece8164)
+
+See the `example` folder and Commit a `.drone.yml` file for drone:
+
+```
+$ cat .drone.yml
+kind: pipeline
+type: docker
+name: hello-world
+
+trigger:
+  branch:
+    - master
+  event:
+    - push
+
+steps:
+  - name: say-hello
+    image: busybox
+    commands:
+      - echo hello-world
+```
+
+Head over to drone and sync your repositories:
+
+![CleanShot 2024-02-29 at 10 47 28@2x](https://github.com/c1495616js/gitea-drone/assets/31360789/97c41a23-4aeb-4bdf-9019-c2ff29baa9c4)
+
+Activate your repository:
+
+![CleanShot 2024-02-29 at 10 48 04@2x](https://github.com/c1495616js/gitea-drone/assets/31360789/d738d2c7-f9fd-4061-9b93-de8783fd4658)
+
+
+Push a commit to master and see your pipeline running:
+
+![CleanShot 2024-02-29 at 10 49 19@2x](https://github.com/c1495616js/gitea-drone/assets/31360789/7938eac2-ce8f-4c5c-9503-7fe915bd7930)
+
+## More Examples
+
+- https://github.com/ruanbekker/drone-ci-testing
+- https://github.com/ruanbekker/drone-demo-python-flask
+- https://github.com/ruanbekker/drone-with-go
+- https://github.com/ruanbekker/demo-drone-mongodb-tests
+- https://github.com/ruanbekker/drone-multi-pipeline
+- https://github.com/ruanbekker/docker-jekyll-drone
+- [Localstack with Drone and Gitea](https://gist.github.com/ruanbekker/84cb9f0c2a21434ca8381a0c74842d84)
+- [Drone, Minio, Gitea, Sqlite on Docker Compose](https://gist.github.com/ruanbekker/3847bbf1b961efc568b93ccbf5c6f9f6)
+- https://github.com/go-gitea/gitea/issues/18402
