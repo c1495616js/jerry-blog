@@ -14,7 +14,7 @@ status: published
 
 Repo: https://github.com/c1495616js/gitea-drone/tree/main
 
-## Credit to 
+## Credit to
 
 https://github.com/ruanbekker/drone-gitea-on-docker
 
@@ -32,16 +32,16 @@ Now boot the stack:
 ```
 $ sh boot.sh
 ```
-- Head over to: `http://${IP_ADDRESS}:3000 and click install gitea with existing configuration.
+
+- Head over to: `http://IP_ADDRESS:3000 and click install gitea with existing configuration.
 
 - Register an account in gitea.
 
-- Head over to: `http://${IP_ADDRESS}:3000/user/settings/applications` and create a new OAuth2 Application and set the Redirect URI to `http://${IP_ADDRESS}:3001/login`
+- Head over to: `http://IP_ADDRESS:3000/user/settings/applications` and create a new OAuth2 Application and set the Redirect URI to `http://IP_ADDRESS:3001/login`
 
 - Capture the client id and client secret and populate them in the `boot.sh` in `DRONE_GITEA_CLIENT_ID` and `DRONE_GITEA_CLIENT_SECRET` and run `bash boot.sh` again. This will give drone the correct credentials in order to authenticate with gitea.
 
-- Now when you head over to `http://${IP_ADDRESS}:3001/` you will be asked to authorize the application and you should be able to access drone.
-
+- Now when you head over to `http://IP_ADDRESS:3001/` you will be asked to authorize the application and you should be able to access drone.
 
 ## Build your first pipeline
 
@@ -77,7 +77,6 @@ Head over to drone and sync your repositories:
 Activate your repository:
 
 ![CleanShot 2024-02-29 at 10 48 04@2x](https://github.com/c1495616js/gitea-drone/assets/31360789/d738d2c7-f9fd-4061-9b93-de8783fd4658)
-
 
 Push a commit to master and see your pipeline running:
 
